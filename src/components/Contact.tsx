@@ -1,5 +1,5 @@
 import { useState, FormEvent, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Mail, 
   Phone, 
@@ -102,10 +102,9 @@ setEmailJsConfigured(
     setIsSubmitting(true);
     addToast("Establishing secure transmission...", "info");
 
-    const metaEnv = (import.meta as any).env;
-    const serviceId = metaEnv?.VITE_EMAILJS_SERVICE_ID;
-    const templateId = metaEnv?.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = metaEnv?.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     // Standard template params designed to go straight to their email
     const templateParams = {
